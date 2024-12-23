@@ -20,7 +20,18 @@ class PostController extends Controller
     }
 
     public function store(Request $request){
-        dd($request->all());
+
+        $request->validate();([
+            "title" => 'required',
+            "body" =>  'required'
+        ]);
+
+        Post::create([
+            "title" => $request->title,
+            "body" => $request->body
+        ]);
+        return redirect()->route("post.index");
     }
+
 }
 

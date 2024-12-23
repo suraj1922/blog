@@ -22,14 +22,21 @@
                 </div>
             </div>
             <div class="card-header">
-                <form action="" method="post">
+                <form action="{{ route('post.store')}}" method="post">
+                    @csrf
                     <div class="mt-1">
                         <label for="title">Title:</label>
                         <input type="text" name="title" class="form-control">
+                        <!-- @error("title")
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror -->
                     </div>
                     <div class="mt-1">
                         <label for="title">Body:</label>
                         <textarea class="form-control" id="" name="body"></textarea>
+                        <!-- @error("body")
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror -->
                     </div>
                     <div class="mt-1">
                         <button class="btn btn-success">Submit</button>
